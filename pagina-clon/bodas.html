@@ -351,12 +351,25 @@
                           <label class="form-label" for="contact-first-name">Fecha y Hora de la Boda</label>
                         </div>
                       </div>
-                      <div class="cell-xs-12">
+                      <div class="cell-sm-6">
                         <div class="form-wrap">
-                          <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
-                          <label class="form-label" for="contact-message">Describe la Locación, ¿Quién eres tú?, Aproximadamente cuantas personas necesitaran de nuestros servicios?</label>
+                          <input class="form-input" id="contact-first-name" type="text" name="name" data-constraints="@Required">
+                          <label class="form-label" for="contact-first-name">Uvicacion</label>
                         </div>
                       </div>
+                      <div class="cell-sm-6">
+                        <div class="form-wrap">
+                          <input class="form-input" id="contact-first-name" type="text" name="name" data-constraints="@Required">
+                          <label class="form-label" for="contact-first-name">Quien eres?</label>
+                        </div>
+                      </div>
+                      <div class="cell-sm-6">
+                        <div class="form-wrap">
+                          <input class="form-input" id="contact-first-name" type="text" name="name" data-constraints="@Required">
+                          <label class="form-label" for="contact-first-name">Personas que requieren el servicio</label>
+                        </div>
+                      </div>
+                     
                       <div class="cell-sm-6">
                         <div class="form-wrap">
                           <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
@@ -450,8 +463,13 @@
 
     </div>
   <!-- Javascript-->
-  <script src="./js/3190-js-core.min.js"></script>
-  <script src="./js/2611-js-script.js"> </script>
+  <script src="./js/core.min.js"></script>
+  <script src="./js/script.js"> </script>
+
+  <script>
+
+    console.log(localStorage.getItem('__mycart'));
+  </script>
 <!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9FT69');</script><!-- End Google Tag Manager --></body>
 </body>
 </html>
