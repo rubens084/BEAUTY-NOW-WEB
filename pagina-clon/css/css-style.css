@@ -1221,7 +1221,7 @@ hr {
   background-color: #dac390;
 }
 
-.button-gray-6-outline.button-effect-ujarak:after {
+.button-gray-6-outline.:after {
   top: 0;
   bottom: 0;
   left: 0;

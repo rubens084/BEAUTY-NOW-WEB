@@ -242,15 +242,17 @@ function obtener_localstorage(){
         '<div class="modal-dialog"  style="margin-top: 80px; margin-left: 750px" role="document">' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+        
         '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4>' +
         '</div>' +
         '<div class="modal-body">' +
         '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +
         '</div>' +
         '<div class="modal-footer">' +
-        '<button type="button" id="clickButton" class="btn btn-default" data-dismiss="modal">Close</button>' +
-        '<button  type="button" onclick="myFunction()" class="btn btn-primary  ">Checkout</button>' +
+        '<button    style=" right: 70px;  padding-top: 3px;padding-bottom: 3px;padding-right: 70px;padding-left: 70px;" type="button" id="clickButton" class=" button button-secondary-outline button-square   btn btn-default" data-dismiss="modal" > Cerrar</button>' +
+        '<button  style="margin-right: 50px;  padding-top: 5px;padding-bottom: 5px;padding-right: 70px;padding-left: 70px;"; type="button" onclick="myFunction()" class="btn btn-primary  ">Pagar</button>' +
+
+        
        
 
         '</div>' +
