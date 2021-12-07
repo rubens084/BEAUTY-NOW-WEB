@@ -87,12 +87,19 @@
       });
       return productIndex;
     };
+
     // LOCALSTORAGE      XXXXXXXXXXXX
+    // se combierten a string para poder almasenarlos.
     var setAllProducts = function (products) {
+      console.log("stringify");
       localStorage[STORAGE_NAME] = JSON.stringify(products);
     };
+    
     var addProduct = function (id, name, summary, price, quantity, image) {
+      console.log("add function");
       var products = getAllProducts();
+      console.log("push");
+    
       products.push({
         id: id,
         name: name,
@@ -110,8 +117,9 @@
     PUBLIC
     */
 
-    // ????????????????????????????
+    
 function obtener_localstorage(){
+  console.log("1");
   let __mycart = localStorage.getItem("__mycart");
 
   console.log(__mycart);
@@ -122,6 +130,7 @@ function obtener_localstorage(){
 
     var getAllProducts = function () {
       try {
+        
         var products = JSON.parse(localStorage[STORAGE_NAME]);
         return products;
       } catch (e) {
@@ -225,7 +234,7 @@ function obtener_localstorage(){
     var classProductTotal = 'my-product-total';
     var classAffixMyCartIcon = 'my-cart-icon-affix';
 
-
+// asjhgdfjsgdfjkhgashjfdgjdgfjkgajhsgfgjahgfjajahfgjahsdgfjhgashjgfjgashgfjhgsajdf
     if (options.cartItems && options.cartItems.constructor === Array) {
       ProductManager.clearProduct();
       $.each(options.cartItems, function () {
@@ -271,7 +280,7 @@ function obtener_localstorage(){
         var total = this.quantity * this.price;
         $cartTable.append(
           '<tr title="' + this.summary + '" data-id="' + this.id + '" data-price="' + this.price + '">' +
-          '<td class="text-center" style="width: 30px;"><img width="30px" height="30px" src="' + this.image + '"/></td>' +
+          '<td class="text-center" style="width: 100px;"><img width="90px" height="60px" src="' + this.image + '"/></td>' +
           '<td>' + this.name + '</td>' +
           '<td title="Unit Price" class="text-right">' + options.currencySymbol + MathHelper.getRoundedNumber(this.price) + '</td>' +
           '<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +

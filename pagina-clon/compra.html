@@ -3,31 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  
+  <script type="text/javascript" src="https://pay.conekta.com/v1.0/js/conekta-checkout.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="css/estilo.css"> -->
     
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
-
-    <!-- <link rel="stylesheet" href="css/sweetalert2.min.css"> -->
-
+    <script type="text/javascript" src="https://pay.conekta.com/v1.0/js/conekta-checkout.min.js"></script>
+    
     <title>Carrito Compras en JavaScript</title>
 
 </head>
 
 
     <link rel="stylesheet" href="./css/css-style.css">
-    <!-- <link rel="stylesheet" href="./css/_icons.scss"> -->
-    <!-- <link rel="stylesheet" href="./css/_mdi.scss"> -->
-    <!-- <link rel="stylesheet" href="./css/_owl-carousel.scss"> -->
+    
 
 
 
 
   
 <body class="modal-open">  
+
+ 
+
+ 
+
+
+
+
   
     <!-- HEDER 1 -->
 
@@ -135,19 +138,11 @@
                 <div class="col">
                     
                     <form id="procesar-pago" action="#" method="post">
-                        <div class="form-group row">
-                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
-                            <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente"
-                                    placeholder="Ingresa nombre cliente" name="destinatario">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
-                            <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="correo" placeholder="Ingresa tu correo" name="cc_to">
-                            </div>
-                        </div>
+                     
+                       
+                     
+
+                     
 
                         
                         <div id="idCartModal" class="form-group table-responsive" >
@@ -180,20 +175,62 @@
                             
                         </div>
 
-                        <div class="row justify-content-center" id="loaders">
-                            <!-- <img id="cargando" src="img/cargando.gif" width="220"> -->
-                        </div>
+                        <div id="conektaIframeContainer" style="height: 1350px;"></div>
+  <script type="text/javascript">
+    window.ConektaCheckoutComponents.Card({
+      targetIFrame: "#conektaIframeContainer",
+//Este componente "allowTokenization" permite personalizar el tokenizador, por lo que su valor siempre será TRUE
+      allowTokenization: true, 
+      checkoutRequestId: "8132d8a3-5919-4b88-a5e9-7be905f69134", // // Checkout request ID, es el mismo ID generado en el paso 1
+      publicKey: "Key_LlavePUBLICA123456789", // Llaves: https://developers.conekta.com/docs/como-obtener-tus-api-keys
+      options: {
+        styles: {
+// inputType modifica el diseño del Web Checkout Tokenizer
+//        inputType: 'basic' // 'basic' | 'rounded' | 'line'
+          inputType: 'rounded',
+// buttonType modifica el diseño de los campos de llenado de información del  Web Checkout Tokenizer
+//        buttonType: 'basic' // 'basic' | 'rounded' | 'sharp'
+          buttonType: 'rounded',
+//Elemento que personaliza el borde de color de los elementos            
+          states: {
+            empty: {
+              borderColor: '#FFAA00' // Código de color hexadecimal para campos vacíos
+            },
+            invalid: {
+              borderColor: '#FF00E0' // Código de color hexadecimal para campos inválidos
+            },
+            valid: {
+              borderColor: '#0079c1' // Código de color hexadecimal para campos llenos y válidos
+            }
+          }
+        },
+        languaje: 'es', // 'es' Español | 'en' Ingles
+//Elemento que personaliza el botón que finzaliza el guardado y tokenización de la tarjeta
+        button: {
+          colorText: '#ffffff', // Código de color hexadecimal para el color de las palabrás en el botón de: Alta de Tarjeta | Add Card
+          //text: 'Agregar Tarjeta***', //Nombre de la acción en el botón ***Se puede personalizar
+          backgroundColor: '#301007' // Código de color hexadecimal para el color del botón de: Alta de Tarjeta | Add Card
+        },
+//Elemento que personaliza el diseño del iframe
+        iframe: {
+          colorText: '#65A39B',  // Código de color hexadecimal para el color de la letra de todos los campos a llenar
+          backgroundColor: '#FFFFFF' // Código de color hexadecimal para el fondo del iframe, generalmente es blanco.
+        }
+      },
+      onCreateTokenSucceeded: function(token) {
+        console.log(token)
+      },
+      onCreateTokenError: function(error) {
+        console.log(error)
+      }
+    })
+  </script>
 
-                        <div class="row justify-content-between">
-                            <div class="col-md-4 mb-2">
-                                <a style=" right: -70px;  padding-top: 3px;padding-bottom: 3px;padding-right: 70px;padding-left: 70px;" href="index.html" class="button button-secondary-outline button-square   btn btn-default">Seguir comprando</a>
-                            </div>
-                            <div class="col-xs-12 col-md-4">
-                                <button href="#"  style=" right: 70px;  padding-top: 3px;padding-bottom: 3px;padding-right: 70px;padding-left: 70px;"class="btn btn-primary" id="procesar-compra" type="button" onclick="myFunction()" >Comfirmar Compra</button>
-                          
-                            </div>
-                        </div>
-                    </form>
+                        
+                        
+                       
+                   
+                      </form>
 
 
                 </div>
@@ -213,72 +250,38 @@
     <pre id="arrPrint"></pre>
 
 
+    <!-- <script>
+      console.log("entro!! ");
+      Conekta.setPublickey("key_bU2Tzy1rBycxbpc4GnaVKJQ");
+         var conectaSuccessResponseHandler= function(token){
+          
+
+          $("#conektaTokenId").val(token.id);
+         };
+console.log("entro1");
+         var conektaErrorResponseHandler = function(response){
+          var $form=$("#procesar-pago");
+
+          alert(response.message_to_purchaser);
+         };
+  
+         $(document).ready(function(){
+
+            $("#procesar-pago").submit(function(e){
+              e.preventDefault();
+
+              var $form= $("#procesar-pago");
+
+              Conekta.Token.create($form,conectaSuccessResponseHandler,conektaErrorResponseHandler);
+            })
+         })
+
+
+  </script> -->
+
 </body>
 
-<!-- <script>
-    var retryarray = localStorage.getItem("__mycart");
-    var array = JSON.parse(retryarray);
 
-    var classProductQuantity = classProductQuantity;
-    // document.getElementById("arrPrint").innerHTML = JSON.stringify(array, null, 2);
-    
-    window.onload = () => {
-        loadTableData(array);
-    };
-    
-    loadTableData(array);
-    
-    function updatecontador (id){
-            console.log(id);
-           var cantidad = document.getElementById('cantidad' + id);
-         // var ccccc =  $('#cantidad'+id).val();
-        
-           console.log(cantidad);
-           
-           
-        }
-    
-    function loadTableData(array){
-        const tableBody = document.getElementById('tableData');
-        let dataHtml = '';
-       
-       
-    
-        for(let compra of array) {
-            var subtotal = compra.price*compra.quantity;
-            
-            dataHtml += `<tr> <td> </td> <td> ${compra.name} </td><td> $${compra.price} </td>
-            <td title="Quantity">
-                <input id="cantidad${compra.id}" type="number" min="1" style="width: 70px;" 
-               onchange="updatecontador('${compra.id}')"   value="${compra.quantity}"/></td>
-            <td> ${subtotal} </td>
-
-            <td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>
-            
-
-            </tr>`;
-            
-        }
-        console.log(dataHtml)
-        
-        tableBody.innerHTML = dataHtml;
-
-        
-    }
-    
-    var updateCart = function () {
-        console.log('jkhkhkhkh');
-        alert('hgasfdjkjfh222');
-      $.each($("." + classProductQuantity), function () {
-        var id = $(array).closest("tr").data("id");
-        ProductManager.updatePoduct(id, $(array).val());
-       
-      });
-
-    };
-
-
-    </script>   -->
     <script src="./js/core.min.js"></script>
     <script src="./js/script.js"></script>
    
